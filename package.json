@@ -1,6 +1,7 @@
 {
   "name": "nepal-yatra-backend",
   "version": "0.1.0",
+  "packageManager": "pnpm@11.9.0",
   "description": "Nepal Yatra — class-based Node.js + Express + TypeScript + MongoDB API",
   "license": "MIT",
   "type": "commonjs",
