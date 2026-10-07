@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>New quote request — {{appName}}</title>
+    <style>
+      @media only screen and (max-width: 600px) {
+        .container { width: 100% !important; }
+        .content { padding: 18px !important; }
+
+        /* Stack each label/value pair instead of squeezing a 2-column table. */
+        .details td.lbl,
+        .details td.val {
+          display: block !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .details td.lbl {
+          padding: 14px 0 2px 0 !important;
+          border-bottom: none !important;
+          font-weight: 600 !important;
+          color: #0f172a !important;
+        }
+        .details td.val {
+          padding: 0 0 12px 0 !important;
+        }
+
+        /* Full-width, stacked, centered action buttons. */
+        .actions { width:100% !important; }
+        .actions td.btn { display:block !important; width:100% !important; padding:0 0 10px 0 !important; }
+        .actions td.btn a { display:block !important; width:100% !important; box-sizing:border-box !important; text-align:center !important; }
+        .actions td.gap { display:none !important; }
+      }
+    </style>
+  </head>
+  <body style="margin:0; padding:0; background-color:#f4f6f8; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial; color:#333333;">
+    <span style="display:none; max-height:0; max-width:0; overflow:hidden; font-size:1px; line-height:1px; color:#fff; opacity:0;">
+      New quote request from {{fullName}} — {{interestedIn}}.
+    </span>
+
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+      <tr>
+        <td align="center" style="padding:28px 16px;">
+          <table class="container" width="600" cellpadding="0" cellspacing="0" role="presentation"
+                 style="width:600px; background:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 1px 3px rgba(16,24,40,0.06);">
+            <!-- Header -->
+            <tr>
+              <td style="padding:22px 28px; background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);">
+                <div style="font-size:13px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:1.5px;">{{appName}}</div>
+                <div style="margin-top:6px; font-size:22px; font-weight:700; color:#ffffff;">New quote request</div>
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td class="content" style="padding:24px 28px;">
+                <p style="margin:0 0 18px 0; font-size:15px; color:#334155; line-height:1.55;">
+                  <strong>{{fullName}}</strong> just asked for a free quote. Here are the details:
+                </p>
+
+                <table class="details" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 0 20px 0; border-collapse:collapse; table-layout:fixed;">
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:13px; color:#64748b; width:38%; vertical-align:top;">Full name</td>
+                    <td class="val" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:14px; color:#0f172a; font-weight:600; word-break:break-word;">{{fullName}}</td>
+                  </tr>
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:13px; color:#64748b; vertical-align:top;">Email</td>
+                    <td class="val" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:14px; word-break:break-word;"><a href="mailto:{{email}}" style="color:#2563eb; text-decoration:none;">{{email}}</a></td>
+                  </tr>
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:13px; color:#64748b; vertical-align:top;">Phone / WhatsApp</td>
+                    <td class="val" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:14px; color:#0f172a; word-break:break-word;">{{phone}}</td>
+                  </tr>
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:13px; color:#64748b; vertical-align:top;">No. of travellers</td>
+                    <td class="val" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:14px; color:#0f172a;">{{travellers}}</td>
+                  </tr>
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:13px; color:#64748b; vertical-align:top;">Interested in</td>
+                    <td class="val" style="padding:10px 0; border-bottom:1px solid #eef1f4; font-size:14px; color:#0f172a; word-break:break-word;">{{interestedIn}}</td>
+                  </tr>
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; {{#if message}}border-bottom:1px solid #eef1f4; {{/if}}font-size:13px; color:#64748b; vertical-align:top;">Preferred date</td>
+                    <td class="val" style="padding:10px 0; {{#if message}}border-bottom:1px solid #eef1f4; {{/if}}font-size:14px; color:#0f172a;">{{preferredDate}}</td>
+                  </tr>
+                  {{#if message}}
+                  <tr>
+                    <td class="lbl" style="padding:10px 0; font-size:13px; color:#64748b; vertical-align:top;">Message</td>
+                    <td class="val" style="padding:10px 0; font-size:14px; color:#0f172a; line-height:1.55; word-break:break-word;">{{message}}</td>
+                  </tr>
+                  {{/if}}
+                </table>
+
+                <table class="actions" cellpadding="0" cellspacing="0" role="presentation">
+                  <tr>
+                    <td class="btn" style="border-radius:6px; background:#25d366;">
+                      <a href="https://wa.me/{{whatsappNumber}}"
+                         style="display:inline-block; padding:12px 22px; font-size:14px; font-weight:600; color:#ffffff; text-decoration:none; border-radius:6px;">
+                        Message on WhatsApp
+                      </a>
+                    </td>
+                    <td class="gap" style="width:12px; line-height:1px; font-size:1px;">&nbsp;</td>
+                    <td class="btn" style="border-radius:6px; background:#0f172a;">
+                      <a href="tel:{{phone}}"
+                         style="display:inline-block; padding:12px 22px; font-size:14px; font-weight:600; color:#ffffff; text-decoration:none; border-radius:6px;">
+                        Call now
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="padding:18px 28px; border-top:1px solid #e5e7eb; font-size:12px; color:#9ca3af;">
+                You're receiving this because a visitor submitted the "Ask for a free quote" form.
+                <div style="margin-top:6px;">&copy; {{year}} {{appName}}. All rights reserved.</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

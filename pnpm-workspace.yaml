@@ -1,0 +1,14 @@
+# pnpm v11+ reads project-wide settings from this file (formerly the
+# `pnpm` key in package.json). Not a real workspace — single-package repo.
+#
+# `allowBuilds` controls which transitive deps may run install scripts.
+# esbuild's postinstall fetches its native binary; we don't use esbuild at
+# runtime (build is via tsc), but allowing it keeps `pnpm install` from
+# exiting non-zero with [ERR_PNPM_IGNORED_BUILDS].
+allowBuilds:
+  sharp: true
+  esbuild: true
+  # We don't need its postinstall: the mongod binary is fetched on demand at
+  # MongoMemoryServer.create() by `pnpm dev:db`. Explicitly denied so pnpm
+  # treats it as "decided" and doesn't exit with [ERR_PNPM_IGNORED_BUILDS].
+  mongodb-memory-server: false

@@ -1,0 +1,61 @@
+# Node
+node_modules/
+.pnpm-store/
+
+
+# Build output
+dist/
+build/
+out/
+
+# Environment files (committed: .env.example only)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production 
+
+# Test coverage
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+scripts/
+seed-assets/
+
+# IDE / editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Husky — track the hook scripts, ignore husky's generated internals
+.husky/_/
+
+# Local-only tooling
+scripts/
+
+# Internal docs — kept out of the public repo
+docs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime user uploads (product images, site assets). Real deploys point
+# UPLOAD_DIR at a persistent volume — this folder is dev-only artefacts.
+uploads/
+
+# next.js
+.next/
+out/
+.mongo-data/

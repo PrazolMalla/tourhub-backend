@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+echo ""
+echo "🎨  [pre-commit] Formatting & linting staged files (lint-staged)…"
+echo ""
+
+if ! pnpm exec lint-staged; then
+  echo ""
+  echo "❌  [pre-commit] FAILED — staged files could not be formatted/linted."
+  echo "    → Review the output above, fix the reported files, then 'git add' and commit again."
+  echo ""
+  exit 1
+fi
+
+echo ""
+echo "✅  [pre-commit] Staged files are clean."
+echo ""

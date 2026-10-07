@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+echo ""
+echo "📝  [commit-msg] Validating commit message (Conventional Commits)…"
+echo ""
+
+if ! pnpm exec commitlint --edit "$1"; then
+  echo ""
+  echo "❌  [commit-msg] REJECTED — your commit message is not Conventional Commits compliant."
+  echo ""
+  echo "    Required format:  <type>(optional-scope): <subject>"
+  echo ""
+  echo "    Allowed types:    feat | fix | docs | style | refactor | perf | test | build | ci | chore | revert"
+  echo ""
+  echo "    Examples:"
+  echo "      feat(trips): add bulk publish action"
+  echo "      fix(auth): clear token on 401 response"
+  echo "      docs: update README setup steps"
+  echo ""
+  echo "    Rules: type is required & lowercase · subject must not be empty · no trailing period · header ≤ 100 chars."
+  echo ""
+  exit 1
+fi
+
+echo ""
+echo "✅  [commit-msg] Commit message looks good."
+echo ""
